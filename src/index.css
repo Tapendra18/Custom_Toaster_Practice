@@ -1,0 +1,140 @@
+/* Reset margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Toaster container styling */
+/* Common toaster styling */
+.toaster {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-20px) scale(0.95);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.5s ease-out;
+  pointer-events: none;
+}
+
+/* Success style */
+.toaster.success {
+  background-color: #4caf50;
+}
+
+.toaster.success:hover {
+  background-color: #45a049;
+}
+
+/* Error style */
+.toaster.error {
+  background-color: #f44336;
+}
+
+.toaster.error:hover {
+  background-color: #d32f2f;
+}
+
+/* Failed style */
+.toaster.failed {
+  background-color: #ff9800;
+}
+
+.toaster.failed:hover {
+  background-color: #f57c00;
+}
+
+/* Not Complete style */
+.toaster.notComplete {
+  background-color: #2196f3;
+}
+
+.toaster.notComplete:hover {
+  background-color: #1976d2;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+/* Show and hide states */
+.toaster.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: slideIn 0.5s forwards;
+}
+
+.toaster.hide {
+  animation: fadeOut 0.5s forwards;
+}
+
+/* Common button styles */
+button {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+button.success {
+  background-color: #4caf50;
+}
+
+button.success:hover {
+  background-color: #45a049;
+}
+
+button.error {
+  background-color: #f44336; /* Red */
+}
+
+button.error:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
+button.failed {
+  background-color: #ff9800; /* Orange */
+}
+
+button.failed:hover {
+  background-color: #f57c00; /* Darker orange */
+}
+
+button.notComplete {
+  background-color: #2196f3; /* Blue */
+}
+
+button.notComplete:hover {
+  background-color: #1976d2; /* Darker blue */
+}
